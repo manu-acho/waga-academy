@@ -10,6 +10,7 @@ curl -X POST http://localhost:3000/api/auth/register \
   "lastName": "Doe",
   "role": "STUDENT"
 }'
+// Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6IlNUVURFTlQiLCJpYXQiOjE3NDM1MzY2MTYsImV4cCI6MTc0MzU0MDIxNn0.RvNxCV78qwYfhXPjX8VuW9VJhmMEJVUP3dbXr_aay0s
 
 # Student login
 curl -X POST http://localhost:3000/api/auth/login \
@@ -18,6 +19,9 @@ curl -X POST http://localhost:3000/api/auth/login \
   "email": "newuser@example.com",
   "password": "securepassword"
 }'
+//Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mywicm9sZSI6IlNUVURFTlQiLCJpYXQiOjE3NDM1MzY2OTQsImV4cCI6MTc0MzU0MDI5NH0.Qb3fU7x9jwVd5kI3FnFHwaVN7VfYYxxXkE8LrYm4bOQ
+
+
 
 # Adnin Registration
 curl -X POST http://localhost:3000/api/auth/register \
@@ -29,6 +33,8 @@ curl -X POST http://localhost:3000/api/auth/register \
   "lastName": "User",
   "role": "ADMIN"
 }'
+// Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQzNTM2OTEzLCJleHAiOjE3NDM1NDA1MTN9.1eklzCi5bWwC-LDoKzCQfAcJg-bGewE3RvBh2e4zKic
+
 
 # Admin Login
 
@@ -38,6 +44,8 @@ curl -X POST http://localhost:3000/api/auth/login \
   "email": "adminuser@example.com",
   "password": "securepassword"
 }'
+
+// Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sZSI6IkFETUlOIiwiaWF0IjoxNzQzNTM2OTkzLCJleHAiOjE3NDM1NDA1OTN9.pTJPfLPIWUyOfg8aKcvNt9Up71uUkJUopKQDbP3L_8c
 
 # Register an Intsructor
 
@@ -50,6 +58,7 @@ curl -X POST http://localhost:3000/api/auth/register \
   "lastName": "User",
   "role": "INSTRUCTOR"
 }'
+// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IklOU1RSVUNUT1IiLCJpYXQiOjE3NDM1MzY3NjMsImV4cCI6MTc0MzU0MDM2M30.987RoFUf3erLgCx31oXGvtdKNuT  kV5uXUxmBZtTJ5S8
 
 # Instructor Login
 
@@ -60,16 +69,4 @@ curl -X POST http://localhost:3000/api/auth/login \
   "password": "securepassword" # eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInJvbGUiOiJJTlNUUlVDVE9SIiwiaWF0IjoxNzQzNDY0OTQ5LCJleHAiOjE3NDM0Njg1NDl9.mzbf-l8YjhXET3C05WSe0XKOMMJxyE8JaMlFKnnEanY
 }'
 
-# login Tokens
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQzNDU5MDUzLCJleHAiOjE3NDM0NjI2NTN9.IpHlxY2VhiTpPuVaJbHjgBc8BIYvXR-Ev97-J1vbTBg
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTYsInJvbGUiOiJTVFVERU5UIiwiaWF0IjoxNzQzNDYzNjUyLCJleHAiOjE3NDM0NjcyNTJ9.868OQ433da30TjJwCqe9RYlF9-QyTeI1wtp2NCyUOuY
-
-admin: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc0MzQ2Mzk3OSwiZXhwIjoxNzQzNDY3NTc5fQ.QhKViXDpWvp49J-c1292bBFlov-BF3zFMau6S5xALdk
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTcsInJvbGUiOiJBRE1JTiIsImlhdCI6MTc0MzQ2NDA3NCwiZXhwIjoxNzQzNDY3Njc0fQ.hRB9xSwvW3EYtoGL9kvUND8hMxIqB6fLPe8dXd4rprg
-
-admin registration token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInJvbGUiOiJJTlNUUlVDVE9SIiwiaWF0IjoxNzQzNDY0NjUzLCJleHAiOjE3NDM0NjgyNTN9.2Tcx3C03B2oqCG2vEYEXe1TvC25dkWLG84gaFGzg-sQ
-
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsInJvbGUiOiJJTlNUUlVDVE9SIiwiaWF0IjoxNzQzNDY1MTcyLCJleHAiOjE3NDM0Njg3NzJ9.Qp_A-Ki116ju5MuKdgNpnfZLcYkxUzVmMLYUEZ4zg2k
+// Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sZSI6IklOU1RSVUNUT1IiLCJpYXQiOjE3NDM1MzY4NjgsImV4cCI6MTc0MzU0MDQ2OH0.kPAOX4ExAG-90LonwLt0wbaKbQQyEAYH-cMxu_EowGs
