@@ -1,85 +1,144 @@
-"use client"
+"use client";
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
+import { ethers } from "ethers";
 
 type WalletContextType = {
-  address: string | null
-  isConnecting: boolean
-  isConnected: boolean
-  connectWallet: (provider: string) => Promise<void>
-  disconnectWallet: () => void
-  openConnectModal: () => void
-  closeConnectModal: () => void
-  isModalOpen: boolean
-}
+  address: string | null;
+  isConnecting: boolean;
+  isConnected: boolean;
+  chainId: number | null;
+  connectWallet: (provider: string) => Promise<void>;
+  disconnectWallet: () => void;
+  openConnectModal: () => void;
+  closeConnectModal: () => void;
+  isModalOpen: boolean;
+  signMessage: (message: string) => Promise<string>;
+  error: Error | null;
+};
 
-const WalletContext = createContext<WalletContextType | undefined>(undefined)
+const WalletContext = createContext<WalletContextType | undefined>(undefined);
 
 export function WalletProvider({ children }: { children: ReactNode }) {
-  const [address, setAddress] = useState<string | null>(null)
-  const [isConnecting, setIsConnecting] = useState(false)
-  const [isConnected, setIsConnected] = useState(false)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [address, setAddress] = useState<string | null>(null);
+  const [isConnecting, setIsConnecting] = useState(false);
+  const [isConnected, setIsConnected] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [chainId, setChainId] = useState<number | null>(null);
+  const [error, setError] = useState<Error | null>(null);
 
-  // Check if wallet is already connected on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const savedAddress = localStorage.getItem("walletAddress")
-      if (savedAddress) {
-        setAddress(savedAddress)
-        setIsConnected(true)
+      const savedAddress = localStorage.getItem("walletAddress");
+      const savedChainId = localStorage.getItem("walletChainId");
+      if (savedAddress && savedChainId) {
+        setAddress(savedAddress);
+        setChainId(Number(savedChainId));
+        setIsConnected(true);
       }
     }
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.ethereum) {
+      const handleAccountsChanged = (accounts: string[]) => {
+        console.log("Accounts changed:", accounts);
+        if (accounts.length === 0) {
+          disconnectWallet();
+        } else {
+          setAddress(accounts[0]);
+        }
+      };
+
+      const handleChainChanged = (chainId: string) => {
+        console.log("Chain changed:", chainId);
+        setChainId(Number(chainId));
+      };
+
+      window.ethereum.on("accountsChanged", handleAccountsChanged);
+      window.ethereum.on("chainChanged", handleChainChanged);
+
+      return () => {
+        window.ethereum.removeListener("accountsChanged", handleAccountsChanged);
+        window.ethereum.removeListener("chainChanged", handleChainChanged);
+      };
+    }
+  }, []);
 
   const connectWallet = async (provider: string) => {
-    setIsConnecting(true)
+    console.log("Starting wallet connection...");
+    setIsConnecting(true);
+    setError(null);
 
     try {
-      // Simulate wallet connection
-      // In a real implementation, this would use the actual provider APIs
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+      if (provider === "metamask") {
+        if (!window.ethereum) {
+          throw new Error("No Ethereum provider found. Please install MetaMask.");
+        }
+        const ethersProvider = new ethers.BrowserProvider(window.ethereum);
+        const accounts = await ethersProvider.send("eth_requestAccounts", []);
+        const network = await ethersProvider.getNetwork();
 
-      let connectedAddress: string
+        if (Number(network.chainId) !== 1) {
+          throw new Error("Please connect to the Ethereum Mainnet.");
+        }
 
-      switch (provider) {
-        case "metamask":
-          connectedAddress = "0x71C7656EC7ab88b098defB751B7401B5f6d8976F"
-          break
-        case "trustwallet":
-          connectedAddress = "0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF"
-          break
-        case "walletconnect":
-          connectedAddress = "0x6B175474E89094C44Da98b954EedeAC495271d0F"
-          break
-        default:
-          connectedAddress = "0x" + Math.random().toString(16).slice(2, 42)
+        setAddress(accounts[0]);
+        setChainId(Number(network.chainId));
+        setIsConnected(true);
+
+        localStorage.setItem("walletAddress", accounts[0]);
+        localStorage.setItem("walletChainId", network.chainId.toString());
+        console.log("Wallet connected successfully.");
+      } else if (provider === "walletconnect") {
+        throw new Error("WalletConnect is not yet implemented.");
+      } else {
+        throw new Error("Unsupported wallet provider.");
       }
 
-      setAddress(connectedAddress)
-      setIsConnected(true)
-      localStorage.setItem("walletAddress", connectedAddress)
-      closeConnectModal()
-    } catch (error) {
-      console.error("Error connecting wallet:", error)
+      closeConnectModal();
+    } catch (err) {
+      console.error("Error connecting wallet:", err);
+      setError(err instanceof Error ? err : new Error("Failed to connect wallet"));
     } finally {
-      setIsConnecting(false)
+      setIsConnecting(false);
     }
-  }
+  };
 
   const disconnectWallet = () => {
-    setAddress(null)
-    setIsConnected(false)
-    localStorage.removeItem("walletAddress")
-  }
+    setAddress(null);
+    setChainId(null);
+    setIsConnected(false);
+    localStorage.removeItem("walletAddress");
+    localStorage.removeItem("walletChainId");
+    setError(null);
+    console.log("Wallet disconnected.");
+  };
 
   const openConnectModal = () => {
-    setIsModalOpen(true)
-  }
+    console.log("Opening connect modal...");
+    setIsModalOpen(true);
+  };
 
   const closeConnectModal = () => {
-    setIsModalOpen(false)
-  }
+    console.log("Closing connect modal...");
+    setIsModalOpen(false);
+  };
+
+  const signMessage = async (message: string): Promise<string> => {
+    if (!window.ethereum || !address) {
+      throw new Error("Wallet not connected");
+    }
+
+    try {
+      const ethersProvider = new ethers.BrowserProvider(window.ethereum);
+      const signer = await ethersProvider.getSigner();
+      return await signer.signMessage(message);
+    } catch (err) {
+      console.error("Error signing message:", err);
+      throw new Error("Failed to sign message");
+    }
+  };
 
   return (
     <WalletContext.Provider
@@ -87,23 +146,31 @@ export function WalletProvider({ children }: { children: ReactNode }) {
         address,
         isConnecting,
         isConnected,
+        chainId,
         connectWallet,
         disconnectWallet,
         openConnectModal,
         closeConnectModal,
         isModalOpen,
+        signMessage,
+        error,
       }}
     >
       {children}
     </WalletContext.Provider>
-  )
+  );
 }
 
 export function useWallet() {
-  const context = useContext(WalletContext)
+  const context = useContext(WalletContext);
   if (context === undefined) {
-    throw new Error("useWallet must be used within a WalletProvider")
+    throw new Error("useWallet must be used within a WalletProvider");
   }
-  return context
+  return context;
 }
 
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+}
