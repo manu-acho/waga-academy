@@ -107,12 +107,12 @@ export default function EventPage({ params }: { params: { id: string } }) {
     <div className="container py-12">
       <div className="space-y-8">
         <div>
-          <Link href="/community/events" className="text-primary hover:underline mb-2 inline-flex items-center">
+          <Link href="/community/events" className="link-emerald flex items-center mb-2">
             <ArrowLeft className="mr-1 h-4 w-4" /> Back to Events
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
             <div className="lg:col-span-2 space-y-6">
-              <div className="relative h-[300px] rounded-xl overflow-hidden web3-card-featured">
+              <div className="relative h-[300px] rounded-xl overflow-hidden web3-card-glow-border">
                 <Image
                   src={eventData.image || "/placeholder.svg"}
                   alt={eventData.title}
@@ -120,36 +120,36 @@ export default function EventPage({ params }: { params: { id: string } }) {
                   className="object-cover"
                 />
                 <div className="absolute top-4 right-4">
-                  <Badge className="bg-purple-500/80 text-white border-purple-500/30">{eventData.type}</Badge>
+                  <Badge className="badge-emerald">{eventData.type}</Badge>
                 </div>
               </div>
 
               <div>
-                <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">{eventData.title}</h1>
+                <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text-enhanced">{eventData.title}</h1>
                 <div className="flex flex-wrap gap-4 mt-4">
                   <div className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4 text-purple-400" />
+                    <Calendar className="h-4 w-4 icon-emerald" />
                     <span>{eventData.date}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Clock className="h-4 w-4 text-purple-400" />
+                    <Clock className="h-4 w-4 icon-emerald" />
                     <span>
                       {eventData.time} • {eventData.duration}
                     </span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Video className="h-4 w-4 text-purple-400" />
+                    <Video className="h-4 w-4 icon-emerald" />
                     <span>{eventData.platform}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <Users className="h-4 w-4 text-purple-400" />
+                    <Users className="h-4 w-4 icon-emerald" />
                     <span>{eventData.registeredCount} registered</span>
                   </div>
                 </div>
               </div>
 
-              <Card className="web3-card-purple">
-                <CardHeader>
+              <Card className="web3-card-gradient hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>About This Event</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -160,21 +160,21 @@ export default function EventPage({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
 
-              <Card className="web3-card-blue">
-                <CardHeader>
+              <Card className="web3-card-glass hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>Speakers</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-6">
                     {eventData.speakers.map((speaker, index) => (
                       <div key={index} className="flex gap-4">
-                        <Avatar className="h-12 w-12 ring-2 ring-blue-500/30">
+                        <Avatar className="h-12 w-12 ring-2 ring-emerald-500/30">
                           <AvatarImage src={`/placeholder.svg?height=48&width=48`} alt={speaker.name} />
-                          <AvatarFallback className="bg-blue-900/50">{speaker.avatar}</AvatarFallback>
+                          <AvatarFallback className="bg-emerald-900/50">{speaker.avatar}</AvatarFallback>
                         </Avatar>
                         <div>
                           <h3 className="font-medium">{speaker.name}</h3>
-                          <p className="text-sm text-blue-300">{speaker.role}</p>
+                          <p className="text-sm text-emerald-300">{speaker.role}</p>
                           <p className="text-sm mt-2">{speaker.bio}</p>
                         </div>
                       </div>
@@ -185,16 +185,16 @@ export default function EventPage({ params }: { params: { id: string } }) {
             </div>
 
             <div className="space-y-6">
-              <Card className="web3-card-featured">
-                <CardHeader>
+              <Card className="web3-card-glow-border hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>Register for This Event</CardTitle>
                   <CardDescription>Secure your spot for this exclusive community event</CardDescription>
                 </CardHeader>
                 <CardContent>
                   {isRegistered ? (
                     <div className="text-center space-y-4">
-                      <div className="bg-primary/10 p-4 rounded-md inline-flex mx-auto">
-                        <Users className="h-8 w-8 text-primary" />
+                      <div className="bg-emerald-500/10 p-4 rounded-md inline-flex mx-auto">
+                        <Users className="h-8 w-8 icon-emerald" />
                       </div>
                       <h3 className="font-medium">You're Registered!</h3>
                       <p className="text-sm text-muted-foreground">
@@ -202,7 +202,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
                         event.
                       </p>
                       {eventData.platformLink && (
-                        <Button asChild className="mt-4 web3-button" variant="outline">
+                        <Button asChild className="mt-4 web3-button-purple" variant="outline">
                           <Link href={eventData.platformLink} target="_blank" rel="noopener noreferrer">
                             <ExternalLink className="mr-2 h-4 w-4" /> Join Event Platform
                           </Link>
@@ -220,7 +220,7 @@ export default function EventPage({ params }: { params: { id: string } }) {
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           placeholder="Enter your full name"
-                          className="web3-input"
+                          className="web3-input-glow focus-emerald"
                           required
                         />
                       </div>
@@ -234,11 +234,11 @@ export default function EventPage({ params }: { params: { id: string } }) {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="Enter your email"
-                          className="web3-input"
+                          className="web3-input-glow focus-emerald"
                           required
                         />
                       </div>
-                      <Button type="submit" className="w-full web3-button" disabled={isRegistering}>
+                      <Button type="submit" className="w-full web3-button-purple" disabled={isRegistering}>
                         {isRegistering ? "Registering..." : "Register Now"}
                       </Button>
                       <p className="text-xs text-center text-muted-foreground">
@@ -249,66 +249,50 @@ export default function EventPage({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
 
-              <Card className="web3-card-teal">
-                <CardHeader>
+              <Card className="web3-card-glass hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>Share This Event</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-center gap-4">
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="border-teal-500/30 hover:border-teal-500/60 bg-teal-500/10"
-                    >
-                      <Twitter className="h-4 w-4 text-teal-400" />
+                    <Button variant="outline" size="icon" className="web3-button-outline-glow">
+                      <Twitter className="h-4 w-4 icon-emerald" />
                     </Button>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="border-teal-500/30 hover:border-teal-500/60 bg-teal-500/10"
-                    >
-                      <Linkedin className="h-4 w-4 text-teal-400" />
+                    <Button variant="outline" size="icon" className="web3-button-outline-glow">
+                      <Linkedin className="h-4 w-4 icon-emerald" />
                     </Button>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="border-teal-500/30 hover:border-teal-500/60 bg-teal-500/10"
-                    >
-                      <Facebook className="h-4 w-4 text-teal-400" />
+                    <Button variant="outline" size="icon" className="web3-button-outline-glow">
+                      <Facebook className="h-4 w-4 icon-emerald" />
                     </Button>
-                    <Button
-                      variant="outline"
-                      size="icon"
-                      className="border-teal-500/30 hover:border-teal-500/60 bg-teal-500/10"
-                    >
-                      <Link2 className="h-4 w-4 text-teal-400" />
+                    <Button variant="outline" size="icon" className="web3-button-outline-glow">
+                      <Link2 className="h-4 w-4 icon-emerald" />
                     </Button>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="web3-card-pink">
-                <CardHeader>
+              <Card className="web3-card-glass hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>Related Events</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="bg-pink-500/10 p-2 rounded-md">
-                      <Calendar className="h-4 w-4 text-pink-400" />
+                    <div className="bg-emerald-500/10 p-2 rounded-md">
+                      <Calendar className="h-4 w-4 icon-emerald" />
                     </div>
                     <div>
-                      <Link href="/community/events/2" className="text-sm font-medium hover:text-primary">
+                      <Link href="/community/events/2" className="text-sm font-medium link-emerald">
                         Community AMA: WAGA Academy Roadmap
                       </Link>
                       <p className="text-xs text-muted-foreground mt-1">May 22, 2024</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="bg-pink-500/10 p-2 rounded-md">
-                      <Calendar className="h-4 w-4 text-pink-400" />
+                    <div className="bg-emerald-500/10 p-2 rounded-md">
+                      <Calendar className="h-4 w-4 icon-emerald" />
                     </div>
                     <div>
-                      <Link href="/community/events/3" className="text-sm font-medium hover:text-primary">
+                      <Link href="/community/events/3" className="text-sm font-medium link-emerald">
                         Coffee Tokenization: Use Cases & Opportunities
                       </Link>
                       <p className="text-xs text-muted-foreground mt-1">June 5, 2024</p>

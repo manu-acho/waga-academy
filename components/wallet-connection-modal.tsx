@@ -37,9 +37,11 @@ export function WalletConnectionModal() {
 
   return (
     <Dialog open={isModalOpen} onOpenChange={(open) => !open && closeConnectModal()}>
-      <DialogContent className="web3-card-featured web3-card-glow sm:max-w-md max-h-[90vh] overflow-y-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
+      <DialogContent className="web3-card-gradient web3-card-glow-intense sm:max-w-md max-h-[90vh] overflow-y-auto fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-black/20 backdrop-blur-md">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-center web3-gradient-text">Connect Your Wallet</DialogTitle>
+          <DialogTitle className="text-xl font-bold text-center web3-gradient-text-glow">
+            Connect Your Wallet
+          </DialogTitle>
         </DialogHeader>
         <div className="py-4">
           <p className="text-center text-muted-foreground mb-6">
@@ -50,12 +52,12 @@ export function WalletConnectionModal() {
               <Button
                 key={wallet.id}
                 variant="outline"
-                className="w-full justify-between border-purple-500/30 hover:border-purple-500/60 bg-black/30 backdrop-blur py-6"
+                className="w-full justify-between border-emerald-500/30 hover:border-emerald-500/60 bg-emerald-950/30 backdrop-blur py-6 animate-border-glow"
                 onClick={() => connectWallet(wallet.id)}
                 disabled={isConnecting}
               >
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-full bg-purple-500/10 flex items-center justify-center">
+                  <div className="h-10 w-10 rounded-full bg-emerald-500/10 flex items-center justify-center">
                     <img src={wallet.icon || "/placeholder.svg"} alt={wallet.name} className="h-6 w-6" />
                   </div>
                   <div className="text-left">
@@ -63,7 +65,7 @@ export function WalletConnectionModal() {
                     <div className="text-xs text-muted-foreground">{wallet.description}</div>
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-muted-foreground" />
+                <ArrowRight className="h-5 w-5 text-emerald-400" />
               </Button>
             ))}
           </div>

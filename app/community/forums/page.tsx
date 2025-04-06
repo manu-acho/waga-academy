@@ -106,14 +106,14 @@ export default function CommunityForumsPage() {
       <div className="space-y-8">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">Community Forums</h1>
+            <h1 className="text-3xl font-bold tracking-tighter web3-dual-gradient-text-glow">Community Forums</h1>
             <p className="text-muted-foreground">Connect, share, and learn with the WAGA community</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button asChild variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
+            <Button asChild variant="outline" className="border-purple-600/30 hover:border-purple-600/60">
               <Link href="/community/dashboard">Dashboard</Link>
             </Button>
-            <Button asChild className="web3-button">
+            <Button asChild className="web3-button-purple">
               <Link href="/community/forums/new">
                 <Plus className="mr-2 h-4 w-4" /> New Topic
               </Link>

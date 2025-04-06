@@ -29,11 +29,16 @@ const visionStatements = [
 export function TestimonialsSection() {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 z-0 web3-grid-bg"></div>
+      <div className="absolute inset-0 z-0 web3-grid-bg-animated"></div>
+
+      {/* Animated background elements */}
+      <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full filter blur-3xl animate-float-slow"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-teal-500/10 rounded-full filter blur-3xl animate-float animation-delay-2000"></div>
+
       <div className="container px-4 md:px-6 relative z-10">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2 animate-fade-in">
-            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight web3-gradient-text-animated">
+            <h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight web3-dual-gradient-text-glow">
               Our Vision for Impact
             </h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -42,9 +47,20 @@ export function TestimonialsSection() {
           </div>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 lg:gap-12 w-full pt-8">
             {visionStatements.map((statement, index) => {
-              // Assign different card styles based on index
-              const cardClasses = ["web3-card-purple", "web3-card-blue", "web3-card-teal"]
-              const cardClass = cardClasses[index % cardClasses.length]
+              // Assign different card styles with purple for the second card
+              let cardClass = "web3-card-glass"
+              let quoteColor = "text-emerald-400"
+              let avatarRingColor = "ring-emerald-500/30"
+              let avatarBgColor = "bg-emerald-900/50"
+
+              if (index === 1) {
+                cardClass = "web3-card-purple"
+                quoteColor = "text-purple-400"
+                avatarRingColor = "ring-purple-500/30"
+                avatarBgColor = "bg-purple-900/50"
+              } else if (index === 2) {
+                cardClass = "web3-card-glow-border"
+              }
 
               return (
                 <Card
@@ -52,13 +68,13 @@ export function TestimonialsSection() {
                   className={`${cardClass} text-center animate-float-slow animation-delay-${index * 200} animate-fade-in`}
                 >
                   <CardContent className="pt-6">
-                    <Quote className="h-8 w-8 mx-auto mb-4 text-purple-400 opacity-50" />
+                    <Quote className={`h-8 w-8 mx-auto mb-4 ${quoteColor} opacity-50`} />
                     <p className="text-muted-foreground">"{statement.quote}"</p>
                   </CardContent>
                   <CardFooter className="flex flex-col items-center pb-6">
-                    <Avatar className="h-12 w-12 mb-2 ring-2 ring-purple-500/30">
+                    <Avatar className={`h-12 w-12 mb-2 ring-2 ${avatarRingColor} animate-border-glow`}>
                       <AvatarImage src={`/placeholder.svg?height=40&width=40`} alt={statement.name} />
-                      <AvatarFallback className="bg-purple-900/50">{statement.avatar}</AvatarFallback>
+                      <AvatarFallback className={avatarBgColor}>{statement.avatar}</AvatarFallback>
                     </Avatar>
                     <div>
                       <p className="font-medium">{statement.name}</p>

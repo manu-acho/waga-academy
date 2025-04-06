@@ -1,11 +1,11 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
 import { CalendarDays, Users, MapPin, Award, Coffee, Lightbulb, Globe, Heart } from "lucide-react"
+import { BlockchainPlaceholder } from "@/components/animations/blockchain-placeholder"
 
 export default function SummerCampPage() {
   return (
@@ -23,7 +23,7 @@ export default function SummerCampPage() {
               <div className="inline-block rounded-lg bg-purple-500/20 border border-purple-500/30 px-3 py-1 text-sm text-purple-300">
                 July - September 2024
               </div>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none web3-gradient-text">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none web3-dual-gradient-text-glow">
                 WAGA Summer Camp
               </h1>
               <p className="text-muted-foreground md:text-xl">A Web3 & Coffee Innovation Experience in Ethiopia</p>
@@ -32,7 +32,7 @@ export default function SummerCampPage() {
                 generation of smallholder farmers with Web3 technology
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button asChild size="lg" className="web3-button">
+                <Button asChild size="lg" className="web3-button-purple">
                   <Link href="/summer-camp/register">Register Now</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
@@ -41,11 +41,11 @@ export default function SummerCampPage() {
               </div>
             </div>
             <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden web3-card">
-              <Image
-                src="/placeholder.svg?height=500&width=800"
-                alt="WAGA Summer Camp in Ethiopia"
-                fill
-                className="object-cover"
+              <BlockchainPlaceholder
+                height={500}
+                variant="default"
+                nodeCount={18}
+                alt="WAGA Summer Camp blockchain visualization"
               />
             </div>
           </div>
@@ -272,17 +272,17 @@ export default function SummerCampPage() {
                 No prior experience in coffee is required – just a passion for impact-driven Web3 solutions!
               </p>
               <div className="pt-4">
-                <Button asChild size="lg" className="web3-button">
+                <Button asChild size="lg" className="web3-button-purple">
                   <Link href="/summer-camp/register">Apply Now</Link>
                 </Button>
               </div>
             </div>
             <div className="relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="WAGA Summer Camp Volunteers"
-                fill
-                className="object-cover"
+              <BlockchainPlaceholder
+                height={400}
+                variant="grid"
+                nodeCount={16}
+                alt="WAGA Summer Camp Volunteers blockchain visualization"
               />
             </div>
           </div>
@@ -388,10 +388,10 @@ export default function SummerCampPage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button asChild size="lg" className="web3-button">
+              <Button asChild size="lg" className="web3-button-purple">
                 <Link href="/summer-camp/register">Apply Now</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
                 <Link href="/contact">Contact Us</Link>
               </Button>
             </div>

@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -17,6 +16,7 @@ import {
   Leaf,
   Award,
 } from "lucide-react"
+import { BlockchainPlaceholder } from "@/components/animations/blockchain-placeholder"
 
 export default function AcademyPage() {
   return (
@@ -29,7 +29,7 @@ export default function AcademyPage() {
               <div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
                 Empowering the Future of Coffee
               </div>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none web3-gradient-text">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none web3-dual-gradient-text-glow">
                 WAGA Academy
               </h1>
               <p className="text-muted-foreground md:text-xl">
@@ -40,16 +40,21 @@ export default function AcademyPage() {
                 in the coffee industry, with a focus on the WAGA ecosystem.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button asChild size="lg" className="web3-button">
+                <Button asChild size="lg" className="web3-button-purple">
                   <Link href="/courses">Browse Courses</Link>
                 </Button>
-                <Button asChild size="lg" variant="outline">
+                <Button asChild size="lg" variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
                   <Link href="/register">Join Academy</Link>
                 </Button>
               </div>
             </div>
             <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden">
-              <Image src="/placeholder.svg?height=500&width=800" alt="WAGA Academy" fill className="object-cover" />
+              <BlockchainPlaceholder
+                height="100%"
+                variant="circular"
+                nodeCount={20}
+                alt="WAGA Academy blockchain visualization"
+              />
             </div>
           </div>
         </div>
@@ -90,11 +95,11 @@ export default function AcademyPage() {
               </div>
             </div>
             <div className="relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="WAGA Academy Vision"
-                fill
-                className="object-cover"
+              <BlockchainPlaceholder
+                height="100%"
+                variant="default"
+                nodeCount={15}
+                alt="WAGA Academy Vision blockchain visualization"
               />
             </div>
           </div>
@@ -454,11 +459,11 @@ export default function AcademyPage() {
               </div>
             </div>
             <div className="relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="WAGA Academy Training"
-                fill
-                className="object-cover"
+              <BlockchainPlaceholder
+                height="100%"
+                variant="grid"
+                nodeCount={16}
+                alt="WAGA Academy Training blockchain visualization"
               />
             </div>
           </div>
@@ -470,11 +475,11 @@ export default function AcademyPage() {
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="relative h-[300px] sm:h-[400px] rounded-xl overflow-hidden order-2 lg:order-1">
-              <Image
-                src="/placeholder.svg?height=400&width=600"
-                alt="WAGAToken Integration"
-                fill
-                className="object-cover"
+              <BlockchainPlaceholder
+                height="100%"
+                variant="circular"
+                nodeCount={12}
+                alt="WAGAToken Integration blockchain visualization"
               />
             </div>
             <div className="space-y-4 order-1 lg:order-2">
@@ -539,10 +544,10 @@ export default function AcademyPage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button asChild size="lg" className="web3-button">
+              <Button asChild size="lg" className="web3-button-purple">
                 <Link href="/courses">Explore Courses</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
                 <Link href="/summer-camp">Join Summer Camp</Link>
               </Button>
             </div>

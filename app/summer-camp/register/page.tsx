@@ -375,11 +375,11 @@ export default function VolunteerRegistrationPage() {
                         type="button"
                         variant="outline"
                         onClick={() => setStep(1)}
-                        className="border-purple-500/30 hover:border-purple-500/60"
+                        className="web3-button-outline-glow"
                       >
                         Back
                       </Button>
-                      <Button type="submit" className="web3-button">
+                      <Button type="submit" className="web3-button-glow">
                         Submit Application
                       </Button>
                     </div>

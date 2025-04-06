@@ -129,7 +129,7 @@ export default function NewTopicPage() {
               <Button type="button" variant="outline" onClick={() => router.push("/community/forums")}>
                 Cancel
               </Button>
-              <Button type="submit" className="web3-button" disabled={isSubmitting}>
+              <Button type="submit" className="web3-button-purple" disabled={isSubmitting}>
                 {isSubmitting ? "Creating Topic..." : "Create Topic"}
               </Button>
             </CardFooter>

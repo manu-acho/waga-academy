@@ -83,7 +83,7 @@ export default function CommunityWelcomePage() {
           </Card>
         </div>
 
-        <div className="bg-black/40 border border-purple-500/20 backdrop-blur rounded-lg p-6 md:p-8">
+        <div className="bg-black/40 border border-purple-600/30 hover:border-purple-600/60 backdrop-blur rounded-lg p-6 md:p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="space-y-4">
               <h2 className="text-2xl font-bold web3-gradient-text">Community Benefits</h2>
@@ -121,7 +121,7 @@ export default function CommunityWelcomePage() {
         </div>
 
         <div className="text-center">
-          <Button asChild size="lg" className="web3-button">
+          <Button asChild size="lg" className="web3-button-purple">
             <Link href="/community/dashboard">Go to Dashboard</Link>
           </Button>
         </div>

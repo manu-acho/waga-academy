@@ -235,7 +235,7 @@ export default function AdminProfilePage() {
                 <Link href="/admin/resources/new" className="w-full">
                   <Button
                     variant="outline"
-                    className="h-auto py-4 w-full border-purple-500/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
+                    className="h-auto py-4 w-full border-purple-600/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
                   >
                     <FileText className="h-5 w-5 text-blue-400" />
                     <span>Add Resource</span>
@@ -244,7 +244,7 @@ export default function AdminProfilePage() {
                 <Link href="/admin/courses/new" className="w-full">
                   <Button
                     variant="outline"
-                    className="h-auto py-4 w-full border-purple-500/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
+                    className="h-auto py-4 w-full border-purple-600/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
                   >
                     <BookOpen className="h-5 w-5 text-teal-400" />
                     <span>Create Course</span>
@@ -253,7 +253,7 @@ export default function AdminProfilePage() {
                 <Link href="/admin/events/new" className="w-full">
                   <Button
                     variant="outline"
-                    className="h-auto py-4 w-full border-purple-500/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
+                    className="h-auto py-4 w-full border-purple-600/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
                   >
                     <Calendar className="h-5 w-5 text-pink-400" />
                     <span>Schedule Event</span>
@@ -262,7 +262,7 @@ export default function AdminProfilePage() {
                 <Link href="/admin/settings" className="w-full">
                   <Button
                     variant="outline"
-                    className="h-auto py-4 w-full border-purple-500/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
+                    className="h-auto py-4 w-full border-purple-600/30 hover:bg-purple-500/10 flex flex-col items-center justify-center gap-2"
                   >
                     <Settings className="h-5 w-5 text-purple-400" />
                     <span>Site Settings</span>
@@ -648,7 +648,7 @@ export default function AdminProfilePage() {
                 </div>
 
                 <div className="flex justify-end gap-3 pt-6">
-                  <Button variant="outline" className="border-purple-500/30 hover:bg-purple-500/10">
+                  <Button variant="outline" className="border-purple-600/30 hover:border-purple-600/60">
                     Cancel
                   </Button>
                   <Button className="bg-purple-500 hover:bg-purple-600">Save Changes</Button>

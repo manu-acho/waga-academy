@@ -91,14 +91,14 @@ export default function ResourcesPage() {
       <div className="space-y-8">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">Community Resources</h1>
+            <h1 className="text-3xl font-bold tracking-tighter web3-dual-gradient-text-glow">Community Resources</h1>
             <p className="text-muted-foreground">Exclusive content for WAGA Early Access Community members</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button asChild variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
+            <Button asChild variant="outline" className="border-purple-600/30 hover:border-purple-600/60">
               <Link href="/community/dashboard">Dashboard</Link>
             </Button>
-            <Button asChild className="web3-button">
+            <Button asChild className="web3-button-purple">
               <Link href="/community/resources/bookmarks">My Bookmarks</Link>
             </Button>
           </div>
@@ -165,7 +165,7 @@ export default function ResourcesPage() {
                           <p className="text-sm text-muted-foreground">{resource.description}</p>
                         </CardContent>
                         <CardFooter>
-                          <Button asChild className="w-full web3-button">
+                          <Button asChild className="w-full web3-button-purple">
                             <Link href={`/community/resources/${resource.id}`}>
                               {resource.downloadable ? (
                                 <>

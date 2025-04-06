@@ -116,32 +116,34 @@ export default function TopicPage({ params }: { params: { id: string } }) {
     <div className="container py-12">
       <div className="space-y-8">
         <div>
-          <Link href="/community/forums" className="text-primary hover:underline mb-2 inline-flex items-center">
+          <Link href="/community/forums" className="link-emerald flex items-center mb-2">
             <ArrowLeft className="mr-1 h-4 w-4" /> Back to Forums
           </Link>
-          <h1 className="text-2xl font-bold tracking-tighter mt-2">{topicData.title}</h1>
+          <h1 className="text-2xl font-bold tracking-tighter mt-2 web3-gradient-text-enhanced">{topicData.title}</h1>
           <div className="flex items-center gap-2 mt-2">
-            <Badge variant="outline">{topicData.category}</Badge>
+            <Badge variant="outline" className="badge-emerald">
+              {topicData.category}
+            </Badge>
             <span className="text-sm text-muted-foreground">Started by {topicData.author}</span>
             <span className="text-sm text-muted-foreground">•</span>
             <span className="text-sm text-muted-foreground">{topicData.date}</span>
           </div>
         </div>
 
-        <Card>
+        <Card className="web3-card-glow-border hover-lift">
           <CardContent className="p-6">
             <div className="flex gap-4">
               <div className="flex-shrink-0">
-                <Avatar className="h-10 w-10">
+                <Avatar className="h-10 w-10 ring-2 ring-emerald-500/30">
                   <AvatarImage src={`/placeholder.svg?height=40&width=40`} alt={topicData.author} />
-                  <AvatarFallback>{topicData.avatar}</AvatarFallback>
+                  <AvatarFallback className="bg-emerald-900/50">{topicData.avatar}</AvatarFallback>
                 </Avatar>
               </div>
               <div className="flex-grow space-y-2">
                 <div className="flex justify-between">
                   <div>
                     <span className="font-medium">{topicData.author}</span>
-                    <span className="text-xs text-muted-foreground ml-2">Topic Starter</span>
+                    <span className="text-xs text-emerald-400 ml-2">Topic Starter</span>
                   </div>
                   <span className="text-xs text-muted-foreground">{topicData.date}</span>
                 </div>
@@ -150,13 +152,25 @@ export default function TopicPage({ params }: { params: { id: string } }) {
                   dangerouslySetInnerHTML={{ __html: topicData.content }}
                 />
                 <div className="flex items-center gap-4 pt-4">
-                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-muted-foreground hover:text-emerald-400 hover:bg-emerald-500/10"
+                  >
                     <Heart className="mr-1 h-4 w-4" /> Like
                   </Button>
-                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-muted-foreground hover:text-emerald-400 hover:bg-emerald-500/10"
+                  >
                     <Share2 className="mr-1 h-4 w-4" /> Share
                   </Button>
-                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-muted-foreground hover:text-emerald-400 hover:bg-emerald-500/10"
+                  >
                     <Flag className="mr-1 h-4 w-4" /> Report
                   </Button>
                 </div>
@@ -166,16 +180,16 @@ export default function TopicPage({ params }: { params: { id: string } }) {
         </Card>
 
         <div className="space-y-4">
-          <h2 className="text-xl font-bold">Replies ({topicData.replies.length})</h2>
+          <h2 className="text-xl font-bold web3-gradient-text">Replies ({topicData.replies.length})</h2>
 
           {topicData.replies.map((reply) => (
-            <Card key={reply.id}>
+            <Card key={reply.id} className="web3-card-glass hover-lift">
               <CardContent className="p-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
-                    <Avatar className="h-10 w-10">
+                    <Avatar className="h-10 w-10 ring-2 ring-emerald-500/30">
                       <AvatarImage src={`/placeholder.svg?height=40&width=40`} alt={reply.author} />
-                      <AvatarFallback>{reply.avatar}</AvatarFallback>
+                      <AvatarFallback className="bg-emerald-900/50">{reply.avatar}</AvatarFallback>
                     </Avatar>
                   </div>
                   <div className="flex-grow space-y-2">
@@ -191,15 +205,23 @@ export default function TopicPage({ params }: { params: { id: string } }) {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-muted-foreground hover:text-primary"
+                        className="text-muted-foreground hover:text-emerald-400 hover:bg-emerald-500/10"
                         onClick={() => handleLike(reply.id)}
                       >
                         <Heart className="mr-1 h-4 w-4" /> {reply.likes}
                       </Button>
-                      <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-muted-foreground hover:text-emerald-400 hover:bg-emerald-500/10"
+                      >
                         <Share2 className="mr-1 h-4 w-4" /> Share
                       </Button>
-                      <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-muted-foreground hover:text-emerald-400 hover:bg-emerald-500/10"
+                      >
                         <Flag className="mr-1 h-4 w-4" /> Report
                       </Button>
                     </div>
@@ -210,20 +232,20 @@ export default function TopicPage({ params }: { params: { id: string } }) {
           ))}
         </div>
 
-        <Card>
-          <CardHeader>
-            <h2 className="text-xl font-bold">Post a Reply</h2>
+        <Card className="web3-card-gradient">
+          <CardHeader className="card-header-gradient">
+            <h2 className="text-xl font-bold web3-gradient-text">Post a Reply</h2>
           </CardHeader>
           <CardContent>
             <Textarea
               placeholder="Write your reply here..."
-              className="min-h-[150px] web3-input"
+              className="min-h-[150px] web3-input-glow focus-emerald"
               value={replyContent}
               onChange={(e) => setReplyContent(e.target.value)}
             />
           </CardContent>
           <CardFooter className="flex justify-end">
-            <Button className="web3-button" onClick={handleSubmitReply} disabled={isSubmitting}>
+            <Button className="web3-button-purple" onClick={handleSubmitReply} disabled={isSubmitting}>
               {isSubmitting ? "Posting..." : "Post Reply"}
             </Button>
           </CardFooter>

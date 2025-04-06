@@ -64,7 +64,7 @@ export default function AdminSettingsPage() {
                 <div className="w-20 h-20 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-500">
                   <User className="h-10 w-10" />
                 </div>
-                <Button className="border border-purple-500/30 hover:bg-purple-500/10 transition">Change Avatar</Button>
+                <Button className="border-purple-600/30 hover:border-purple-600/60 transition">Change Avatar</Button>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -109,7 +109,7 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex justify-end">
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white">Save Changes</Button>
+                <Button className="web3-button-purple">Save Changes</Button>
               </div>
             </CardContent>
           </Card>
@@ -157,7 +157,7 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex justify-end">
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white">Save Preferences</Button>
+                <Button className="web3-button-purple">Save Preferences</Button>
               </div>
             </CardContent>
           </Card>
@@ -208,12 +208,12 @@ export default function AdminSettingsPage() {
                       <p className="text-sm text-muted-foreground">Add an extra layer of security</p>
                     </div>
                   </div>
-                  <Button className="border border-purple-500/30 hover:bg-purple-500/10 transition">Enable</Button>
+                  <Button className="border-purple-600/30 hover:border-purple-600/60 transition">Enable</Button>
                 </div>
               </div>
 
               <div className="flex justify-end">
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white">Update Password</Button>
+                <Button className="web3-button-purple">Update Password</Button>
               </div>
             </CardContent>
           </Card>
@@ -255,7 +255,7 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex justify-end">
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white">Save Settings</Button>
+                <Button className="web3-button-purple">Save Settings</Button>
               </div>
             </CardContent>
           </Card>
@@ -345,7 +345,7 @@ export default function AdminSettingsPage() {
               </div>
 
               <div className="flex justify-end">
-                <Button className="bg-purple-500 hover:bg-purple-600 text-white">Save Permissions</Button>
+                <Button className="web3-button-purple">Save Permissions</Button>
               </div>
             </CardContent>
           </Card>

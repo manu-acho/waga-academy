@@ -3,88 +3,50 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Calendar, MessageSquare, Users, Coffee, Globe, Lightbulb } from "lucide-react"
+import { Calendar, MessageSquare, Users, Coffee, Globe } from "lucide-react"
 
 const upcomingEvents = [
   {
     id: 1,
-    title: "Web3 for Coffee Traceability",
+    title: "Welcome to WAGA Academy",
     type: "Webinar",
-    date: "May 15, 2024",
-    time: "3:00 PM UTC",
-    speakers: ["Jane Doe", "John Smith"],
-  },
-  {
-    id: 2,
-    title: "Community AMA: WAGA Academy Roadmap",
-    type: "Live Session",
-    date: "May 22, 2024",
-    time: "4:00 PM UTC",
+    date: "Coming Soon",
+    time: "To be announced",
     speakers: ["WAGA Team"],
   },
   {
-    id: 3,
-    title: "Coffee Tokenization: Use Cases & Opportunities",
-    type: "Workshop",
-    date: "June 5, 2024",
-    time: "2:00 PM UTC",
-    speakers: ["Alice Johnson", "Bob Williams"],
+    id: 2,
+    title: "Introduction to Blockchain for Coffee",
+    type: "Live Session",
+    date: "Coming Soon",
+    time: "To be announced",
+    speakers: ["WAGA Team"],
   },
 ]
 
 const discussionTopics = [
   {
     id: 1,
-    title: "How can blockchain improve coffee farmer incomes?",
-    author: "CoffeeChain",
-    avatar: "CC",
-    replies: 24,
-    lastActive: "2 hours ago",
-  },
-  {
-    id: 2,
-    title: "Summer Camp 2024: What to expect?",
-    author: "EthioExplorer",
-    avatar: "EE",
-    replies: 18,
-    lastActive: "5 hours ago",
-  },
-  {
-    id: 3,
-    title: "DeFi lending models for smallholder farmers",
-    author: "CryptoFarmer",
-    avatar: "CF",
-    replies: 32,
-    lastActive: "1 day ago",
-  },
-  {
-    id: 4,
-    title: "Introducing myself: Coffee roaster from Colombia",
-    author: "BeanMaster",
-    avatar: "BM",
-    replies: 15,
-    lastActive: "2 days ago",
+    title: "Welcome to the WAGA Academy Community",
+    author: "WAGATeam",
+    avatar: "WT",
+    replies: 0,
+    lastActive: "Just now",
   },
 ]
 
 const resources = [
   {
     id: 1,
-    title: "Blockchain for Agriculture: A Primer",
-    type: "PDF Guide",
+    title: "Getting Started with WAGA Academy",
+    type: "Guide",
     icon: <Globe className="h-8 w-8 text-purple-400" />,
   },
   {
     id: 2,
-    title: "Coffee Value Chain Explained",
-    type: "Video Series",
+    title: "Introduction to Blockchain",
+    type: "Coming Soon",
     icon: <Coffee className="h-8 w-8 text-blue-400" />,
-  },
-  {
-    id: 3,
-    title: "Setting Up a Crypto Wallet",
-    type: "Tutorial",
-    icon: <Lightbulb className="h-8 w-8 text-teal-400" />,
   },
 ]
 
@@ -94,14 +56,14 @@ export default function CommunityDashboard() {
       <div className="space-y-8">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">Community Dashboard</h1>
-            <p className="text-muted-foreground">Welcome to the WAGA Early Access Community</p>
+            <h1 className="text-3xl font-bold tracking-tighter web3-dual-gradient-text-glow">Community Dashboard</h1>
+            <p className="text-muted-foreground">Welcome to the WAGA Academy Community</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button asChild variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
+            <Button asChild variant="outline" className="border-purple-600/30 hover:border-purple-600/60">
               <Link href="/community/profile">My Profile</Link>
             </Button>
-            <Button asChild className="web3-button">
+            <Button asChild className="web3-button-purple">
               <Link href="/community/forums">Community Forums</Link>
             </Button>
           </div>
@@ -114,8 +76,8 @@ export default function CommunityDashboard() {
               <Users className="h-4 w-4 text-purple-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">247</div>
-              <p className="text-xs text-muted-foreground">Growing every day</p>
+              <div className="text-2xl font-bold">1</div>
+              <p className="text-xs text-muted-foreground">You're the first one here!</p>
             </CardContent>
           </Card>
           <Card className="web3-card-blue">
@@ -124,8 +86,8 @@ export default function CommunityDashboard() {
               <Calendar className="h-4 w-4 text-blue-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">3</div>
-              <p className="text-xs text-muted-foreground">In the next 30 days</p>
+              <div className="text-2xl font-bold">{upcomingEvents.length}</div>
+              <p className="text-xs text-muted-foreground">Coming soon</p>
             </CardContent>
           </Card>
           <Card className="web3-card-teal">
@@ -134,8 +96,8 @@ export default function CommunityDashboard() {
               <MessageSquare className="h-4 w-4 text-teal-400" />
             </CardHeader>
             <CardContent>
-              <div className="text-2xl font-bold">12</div>
-              <p className="text-xs text-muted-foreground">Join the conversation</p>
+              <div className="text-2xl font-bold">{discussionTopics.length}</div>
+              <p className="text-xs text-muted-foreground">Start the conversation</p>
             </CardContent>
           </Card>
         </div>
@@ -144,7 +106,7 @@ export default function CommunityDashboard() {
           <Card className="lg:col-span-2 web3-card-featured">
             <CardHeader>
               <CardTitle className="web3-gradient-text">Upcoming Community Events</CardTitle>
-              <CardDescription>Join us for these exclusive early access events</CardDescription>
+              <CardDescription>Join us for these exclusive events</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -174,9 +136,9 @@ export default function CommunityDashboard() {
                           asChild
                           size="sm"
                           variant="outline"
-                          className="border-purple-500/30 hover:border-purple-500/60"
+                          className="border-purple-600/30 hover:border-purple-600/60"
                         >
-                          <Link href={`/community/events/${event.id}`}>Register</Link>
+                          <Link href={`/community/events/${event.id}`}>Stay Tuned</Link>
                         </Button>
                       </div>
                     </div>
@@ -185,7 +147,7 @@ export default function CommunityDashboard() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button asChild variant="outline" className="w-full border-purple-500/30 hover:border-purple-500/60">
+              <Button asChild variant="outline" className="w-full border-purple-600/30 hover:border-purple-600/60">
                 <Link href="/community/events">View All Events</Link>
               </Button>
             </CardFooter>
@@ -194,7 +156,7 @@ export default function CommunityDashboard() {
           <Card className="web3-card-purple">
             <CardHeader>
               <CardTitle className="web3-gradient-text">Latest Resources</CardTitle>
-              <CardDescription>Exclusive content for community members</CardDescription>
+              <CardDescription>Content for community members</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -216,7 +178,7 @@ export default function CommunityDashboard() {
                             asChild
                             size="sm"
                             variant="outline"
-                            className="border-purple-500/30 hover:border-purple-500/60"
+                            className="border-purple-600/30 hover:border-purple-600/60"
                           >
                             <Link href={`/community/resources/${resource.id}`}>Access</Link>
                           </Button>
@@ -228,7 +190,7 @@ export default function CommunityDashboard() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button asChild variant="outline" className="w-full border-purple-500/30 hover:border-purple-500/60">
+              <Button asChild variant="outline" className="w-full border-purple-600/30 hover:border-purple-600/60">
                 <Link href="/community/resources">View All Resources</Link>
               </Button>
             </CardFooter>
@@ -236,7 +198,7 @@ export default function CommunityDashboard() {
         </div>
 
         <div>
-          <h2 className="text-xl font-bold mb-6 web3-gradient-text">Active Discussions</h2>
+          <h2 className="text-xl font-bold mb-6 web3-gradient-text">Community Discussions</h2>
           <div className="space-y-4">
             {discussionTopics.map((topic, index) => {
               // Assign different card styles based on index
@@ -279,8 +241,8 @@ export default function CommunityDashboard() {
             })}
           </div>
           <div className="mt-6 flex justify-center">
-            <Button asChild className="web3-button">
-              <Link href="/community/forums">View All Discussions</Link>
+            <Button asChild className="web3-button-purple">
+              <Link href="/community/forums/new">Start a Discussion</Link>
             </Button>
           </div>
         </div>

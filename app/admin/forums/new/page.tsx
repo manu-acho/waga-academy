@@ -102,11 +102,11 @@ export default function NewForumTopic() {
               variant="outline"
               type="button"
               onClick={() => window.history.back()}
-              className="border-purple-500/30 hover:bg-purple-500/10"
+              className="border-purple-600/30 hover:border-purple-600/60"
             >
               Cancel
             </Button>
-            <Button className="web3-button" type="submit" disabled={isSaving}>
+            <Button className="web3-button-purple" type="submit" disabled={isSaving}>
               {isSaving ? (
                 <>
                   <div className="animate-spin mr-2 h-4 w-4 border-2 border-current border-t-transparent rounded-full" />

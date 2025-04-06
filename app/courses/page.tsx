@@ -219,7 +219,7 @@ export default function CoursesPage({ searchParams }: { searchParams: { category
           <CardDescription className="line-clamp-4">{course.description}</CardDescription>
         </CardContent>
         <CardFooter>
-          <Button asChild className="w-full web3-button">
+          <Button asChild className="w-full web3-button-purple">
             <Link href={course.href}>Join Waitlist</Link>
           </Button>
         </CardFooter>
@@ -231,7 +231,9 @@ export default function CoursesPage({ searchParams }: { searchParams: { category
     <div className="container py-12 md:py-24">
       <div className="space-y-12">
         <div className="space-y-4">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl web3-gradient-text">Courses</h1>
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl web3-dual-gradient-text-glow">
+            Courses
+          </h1>
           <p className="text-muted-foreground md:text-xl">
             Browse our upcoming curriculum designed around the coffee value chain
           </p>
@@ -332,6 +334,7 @@ export default function CoursesPage({ searchParams }: { searchParams: { category
                       setSelectedCategory("all")
                       setSelectedLevel("all")
                       setSearchQuery("")
+                      setActiveTab("all")
                     }}
                   >
                     Reset Filters
@@ -357,6 +360,7 @@ export default function CoursesPage({ searchParams }: { searchParams: { category
                       setSelectedCategory("all")
                       setSelectedLevel("all")
                       setSearchQuery("")
+                      setActiveTab("all")
                     }}
                   >
                     Reset Filters
@@ -382,6 +386,7 @@ export default function CoursesPage({ searchParams }: { searchParams: { category
                       setSelectedCategory("all")
                       setSelectedLevel("all")
                       setSearchQuery("")
+                      setActiveTab("all")
                     }}
                   >
                     Reset Filters
@@ -407,6 +412,7 @@ export default function CoursesPage({ searchParams }: { searchParams: { category
                       setSelectedCategory("all")
                       setSelectedLevel("all")
                       setSearchQuery("")
+                      setActiveTab("all")
                     }}
                   >
                     Reset Filters

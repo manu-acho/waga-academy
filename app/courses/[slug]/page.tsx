@@ -637,45 +637,48 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-6">
             <div>
-              <Link href="/courses" className="text-primary hover:underline mb-2 inline-flex items-center">
+              <Link href="/courses" className="link-emerald flex items-center mb-2">
                 <ArrowLeft className="mr-1 h-4 w-4" /> Back to Courses
               </Link>
-              <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">{course.title}</h1>
+              <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text-enhanced">{course.title}</h1>
               <p className="text-muted-foreground mt-2">{course.description}</p>
               <div className="mt-2">
-                <Badge variant="outline" className="primary-gradient text-white">
+                <Badge variant="outline" className="primary-gradient text-white animate-border-glow">
                   Coming Q4 2025
                 </Badge>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="bg-purple-500/10 border-purple-500/30 text-purple-300">
+              <Badge variant="outline" className="badge-emerald">
                 {course.category}
               </Badge>
-              <Badge variant="secondary" className="bg-blue-500/10 border-blue-500/30 text-blue-300">
+              <Badge variant="secondary" className="bg-emerald-500/10 border-emerald-500/30 text-emerald-300">
                 {course.level}
               </Badge>
-              <Badge variant="outline" className="bg-teal-500/10 border-teal-500/30 text-teal-300">
+              <Badge variant="outline" className="bg-emerald-500/10 border-emerald-500/30 text-emerald-300">
                 {course.duration}
               </Badge>
             </div>
 
             <div className="flex items-center gap-4">
-              <Avatar className="h-10 w-10 ring-2 ring-purple-500/30">
+              <Avatar className="h-10 w-10 ring-2 ring-emerald-500/30">
                 <AvatarImage src="/placeholder.svg?height=40&width=40" alt={course.instructor.name} />
-                <AvatarFallback className="bg-purple-900/50">{course.instructor.avatar}</AvatarFallback>
+                <AvatarFallback className="bg-emerald-900/50">{course.instructor.avatar}</AvatarFallback>
               </Avatar>
               <div>
                 <p className="font-medium">{course.instructor.name}</p>
-                <p className="text-sm text-muted-foreground">{course.instructor.title}</p>
+                <p className="text-sm text-emerald-400">{course.instructor.title}</p>
               </div>
             </div>
 
-            <div className="relative h-[225px] sm:h-[400px] rounded-xl overflow-hidden web3-card-featured">
+            <div className="relative h-[225px] sm:h-[400px] rounded-xl overflow-hidden web3-card-glow-border">
               <Image src="/placeholder.svg?height=400&width=800" alt={course.title} fill className="object-cover" />
               <div className="absolute inset-0 flex items-center justify-center">
-                <Button size="icon" className="h-16 w-16 rounded-full bg-primary/90 text-white hover:bg-primary">
+                <Button
+                  size="icon"
+                  className="h-16 w-16 rounded-full bg-emerald-600/90 text-white hover:bg-emerald-600 animate-pulse"
+                >
                   <Play className="h-8 w-8" />
                 </Button>
               </div>
@@ -701,7 +704,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                       <AccordionItem
                         key={moduleIndex}
                         value={`module-${moduleIndex}`}
-                        className="web3-card-purple mb-2 border-purple-500/30"
+                        className="web3-card-glass mb-2 border-emerald-500/30 hover-lift"
                       >
                         <AccordionTrigger className="px-2">
                           <div className="flex justify-between items-center w-full pr-4">
@@ -714,14 +717,14 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                             {module.lessons.map((lesson, lessonIndex) => (
                               <div
                                 key={lessonIndex}
-                                className="flex justify-between items-center p-3 rounded-md hover:bg-purple-500/5"
+                                className="flex justify-between items-center p-3 rounded-md hover:bg-emerald-500/5"
                               >
                                 <div className="flex items-center gap-3">
-                                  <div className="h-6 w-6 rounded-full flex items-center justify-center border border-purple-500/30"></div>
+                                  <div className="h-6 w-6 rounded-full flex items-center justify-center border border-emerald-500/30"></div>
                                   <span>{lesson.title}</span>
                                 </div>
                                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                                  <Clock className="h-3 w-3" />
+                                  <Clock className="h-3 w-3 icon-emerald" />
                                   <span>{lesson.duration}</span>
                                 </div>
                               </div>
@@ -828,45 +831,45 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
           <div className="space-y-6">
             <CourseWaitlist courseName={course.title} />
 
-            <Card className="web3-card-blue">
-              <CardHeader>
+            <Card className="web3-card-glass hover-lift">
+              <CardHeader className="card-header-gradient">
                 <CardTitle>Course Details</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="primary-gradient text-white">
+                    <Badge variant="outline" className="primary-gradient text-white animate-border-glow">
                       Coming Q4 2025
                     </Badge>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Coffee className="h-4 w-4 text-blue-400" />
+                    <Coffee className="h-4 w-4 icon-emerald" />
                     <span className="text-sm">Part of Coffee Value Chain curriculum</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-blue-400" />
+                    <Calendar className="h-4 w-4 icon-emerald" />
                     <span className="text-sm">Estimated duration: {course.duration}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <BookOpen className="h-4 w-4 text-blue-400" />
+                    <BookOpen className="h-4 w-4 icon-emerald" />
                     <span className="text-sm">Certificate upon completion</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="web3-card-teal">
-              <CardHeader>
+            <Card className="web3-card-glass hover-lift">
+              <CardHeader className="card-header-gradient">
                 <CardTitle>Related Courses</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <div className="h-12 w-12 rounded-md bg-teal-500/10 flex items-center justify-center flex-shrink-0">
-                      <Coffee className="h-6 w-6 text-teal-400" />
+                    <div className="h-12 w-12 rounded-md bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                      <Coffee className="h-6 w-6 icon-emerald" />
                     </div>
                     <div>
-                      <Link href="/courses/coffee-tokenization" className="font-medium hover:text-primary">
+                      <Link href="/courses/coffee-tokenization" className="font-medium link-emerald">
                         Coffee Tokenization Fundamentals
                       </Link>
                       <p className="text-xs text-muted-foreground mt-1">
@@ -875,11 +878,11 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="h-12 w-12 rounded-md bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                      <Coffee className="h-6 w-6 text-purple-400" />
+                    <div className="h-12 w-12 rounded-md bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                      <Coffee className="h-6 w-6 icon-emerald" />
                     </div>
                     <div>
-                      <Link href="/courses/defi-coffee-farmers" className="font-medium hover:text-primary">
+                      <Link href="/courses/defi-coffee-farmers" className="font-medium link-emerald">
                         DeFi Solutions for Coffee Farmers
                       </Link>
                       <p className="text-xs text-muted-foreground mt-1">
@@ -888,11 +891,11 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <div className="h-12 w-12 rounded-md bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                      <Coffee className="h-6 w-6 text-blue-400" />
+                    <div className="h-12 w-12 rounded-md bg-emerald-500/10 flex items-center justify-center flex-shrink-0">
+                      <Coffee className="h-6 w-6 icon-emerald" />
                     </div>
                     <div>
-                      <Link href="/courses/iot-coffee-monitoring" className="font-medium hover:text-primary">
+                      <Link href="/courses/iot-coffee-monitoring" className="font-medium link-emerald">
                         IoT for Coffee Farm Monitoring
                       </Link>
                       <p className="text-xs text-muted-foreground mt-1">

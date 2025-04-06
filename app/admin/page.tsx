@@ -8,18 +8,18 @@ export default function AdminDashboard() {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">Admin Dashboard</h1>
+          <h1 className="text-3xl font-bold tracking-tighter web3-dual-gradient-text-glow">Admin Dashboard</h1>
           <p className="text-muted-foreground">Manage your content and monitor platform activity</p>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <Button
             asChild
             variant="outline"
-            className="border-purple-500/30 hover:border-purple-500/60 text-xs md:text-sm px-2 md:px-4"
+            className="border-purple-600/30 hover:border-purple-600/60 text-xs md:text-sm px-2 md:px-4"
           >
             <Link href="/admin/profile">Admin Profile</Link>
           </Button>
-          <Button asChild className="web3-button text-xs md:text-sm px-2 md:px-4">
+          <Button asChild className="web3-button-purple text-xs md:text-sm px-2 md:px-4">
             <Link href="/admin/settings">Settings</Link>
           </Button>
         </div>
@@ -32,8 +32,8 @@ export default function AdminDashboard() {
             <BookOpen className="h-3 w-3 md:h-4 md:w-4 text-purple-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-xl md:text-2xl font-bold">12</div>
-            <p className="text-[10px] md:text-xs text-muted-foreground">+2 added this month</p>
+            <div className="text-xl md:text-2xl font-bold">0</div>
+            <p className="text-[10px] md:text-xs text-muted-foreground">Ready to add your first course</p>
           </CardContent>
         </Card>
         <Card className="web3-card-blue">
@@ -42,8 +42,8 @@ export default function AdminDashboard() {
             <FileText className="h-3 w-3 md:h-4 md:w-4 text-blue-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-xl md:text-2xl font-bold">24</div>
-            <p className="text-[10px] md:text-xs text-muted-foreground">+5 added this month</p>
+            <div className="text-xl md:text-2xl font-bold">0</div>
+            <p className="text-[10px] md:text-xs text-muted-foreground">Ready for your first resource</p>
           </CardContent>
         </Card>
         <Card className="web3-card-teal col-span-2 md:col-span-1">
@@ -52,8 +52,8 @@ export default function AdminDashboard() {
             <Users className="h-3 w-3 md:h-4 md:w-4 text-teal-400" />
           </CardHeader>
           <CardContent>
-            <div className="text-xl md:text-2xl font-bold">342</div>
-            <p className="text-[10px] md:text-xs text-muted-foreground">+18% from last month</p>
+            <div className="text-xl md:text-2xl font-bold">0</div>
+            <p className="text-[10px] md:text-xs text-muted-foreground">Waiting for first users</p>
           </CardContent>
         </Card>
       </div>
@@ -61,35 +61,35 @@ export default function AdminDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <Card className="lg:col-span-2 web3-card-featured">
           <CardHeader>
-            <CardTitle className="web3-gradient-text">Recent Updates</CardTitle>
-            <CardDescription>Latest content changes on the platform</CardDescription>
+            <CardTitle className="web3-gradient-text">Getting Started</CardTitle>
+            <CardDescription>Steps to set up your platform</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-6">
               <div className="flex flex-col sm:flex-row gap-4 pb-4 border-b border-purple-500/20">
                 <div className="sm:w-1/4">
                   <div className="bg-purple-500/10 p-2 md:p-4 rounded-md text-center">
-                    <p className="text-xs md:text-sm font-medium">2 hours ago</p>
-                    <p className="text-[10px] md:text-xs text-muted-foreground">Course Update</p>
+                    <p className="text-xs md:text-sm font-medium">Step 1</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Course Setup</p>
                   </div>
                 </div>
                 <div className="sm:w-3/4 space-y-2">
                   <div className="flex justify-between items-start">
-                    <h3 className="text-sm md:font-medium">New Course Added</h3>
+                    <h3 className="text-sm md:font-medium">Create Your First Course</h3>
                     <div className="bg-purple-500/10 border-purple-500/30 text-purple-300 px-1 py-0.5 md:px-2 md:py-1 rounded-md text-[10px] md:text-xs">
-                      Course
+                      Pending
                     </div>
                   </div>
                   <p className="text-xs md:text-sm text-muted-foreground">
-                    Advanced Blockchain for Coffee Supply Chain
+                    Add your first blockchain course to the platform
                   </p>
                   <Button
                     asChild
                     size="sm"
                     variant="outline"
-                    className="border-purple-500/30 hover:border-purple-500/60 text-xs h-7 md:h-8"
+                    className="border-purple-600/30 hover:border-purple-600/60 text-xs h-7 md:h-8"
                   >
-                    <Link href="/admin/courses">View Course</Link>
+                    <Link href="/admin/courses/new">Create Course</Link>
                   </Button>
                 </div>
               </div>
@@ -97,25 +97,25 @@ export default function AdminDashboard() {
               <div className="flex flex-col sm:flex-row gap-4 pb-4 border-b border-purple-500/20">
                 <div className="sm:w-1/4">
                   <div className="bg-blue-500/10 p-4 rounded-md text-center">
-                    <p className="text-sm font-medium">Yesterday</p>
-                    <p className="text-xs text-muted-foreground">Resource Update</p>
+                    <p className="text-sm font-medium">Step 2</p>
+                    <p className="text-xs text-muted-foreground">Resource Setup</p>
                   </div>
                 </div>
                 <div className="sm:w-3/4 space-y-2">
                   <div className="flex justify-between items-start">
-                    <h3 className="font-medium">Resource Updated</h3>
+                    <h3 className="font-medium">Add Learning Resources</h3>
                     <div className="bg-blue-500/10 border-blue-500/30 text-blue-300 px-2 py-1 rounded-md text-xs">
-                      Resource
+                      Pending
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">Coffee Farming Best Practices Guide</p>
+                  <p className="text-sm text-muted-foreground">Upload guides and materials for your students</p>
                   <Button
                     asChild
                     size="sm"
                     variant="outline"
-                    className="border-purple-500/30 hover:border-purple-500/60"
+                    className="border-purple-600/30 hover:border-purple-600/60"
                   >
-                    <Link href="/admin/resources">View Resource</Link>
+                    <Link href="/admin/resources/new">Add Resources</Link>
                   </Button>
                 </div>
               </div>
@@ -123,25 +123,25 @@ export default function AdminDashboard() {
               <div className="flex flex-col sm:flex-row gap-4 pb-4 border-b border-purple-500/20">
                 <div className="sm:w-1/4">
                   <div className="bg-teal-500/10 p-4 rounded-md text-center">
-                    <p className="text-sm font-medium">3 days ago</p>
-                    <p className="text-xs text-muted-foreground">Event Created</p>
+                    <p className="text-sm font-medium">Step 3</p>
+                    <p className="text-xs text-muted-foreground">Community Setup</p>
                   </div>
                 </div>
                 <div className="sm:w-3/4 space-y-2">
                   <div className="flex justify-between items-start">
-                    <h3 className="font-medium">Summer Camp Registration Opened</h3>
+                    <h3 className="font-medium">Create Welcome Forum Topic</h3>
                     <div className="bg-teal-500/10 border-teal-500/30 text-teal-300 px-2 py-1 rounded-md text-xs">
-                      Event
+                      Pending
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">Registration is now open for all members</p>
+                  <p className="text-sm text-muted-foreground">Start the conversation in your community</p>
                   <Button
                     asChild
                     size="sm"
                     variant="outline"
-                    className="border-purple-500/30 hover:border-purple-500/60"
+                    className="border-purple-600/30 hover:border-purple-600/60"
                   >
-                    <Link href="/admin/events">View Event</Link>
+                    <Link href="/admin/forums/new">Create Topic</Link>
                   </Button>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export default function AdminDashboard() {
                       asChild
                       size="sm"
                       variant="outline"
-                      className="border-purple-500/30 hover:border-purple-500/60 text-xs h-7 md:h-8 w-full md:w-auto"
+                      className="border-purple-600/30 hover:border-purple-600/60 text-xs h-7 md:h-8 w-full md:w-auto"
                     >
                       <Link href="/admin/resources/new">Create Resource</Link>
                     </Button>
@@ -186,7 +186,7 @@ export default function AdminDashboard() {
                       asChild
                       size="sm"
                       variant="outline"
-                      className="border-purple-500/30 hover:border-purple-500/60"
+                      className="border-purple-600/30 hover:border-purple-600/60"
                     >
                       <Link href="/admin/courses/new">Create Course</Link>
                     </Button>
@@ -205,7 +205,7 @@ export default function AdminDashboard() {
                       asChild
                       size="sm"
                       variant="outline"
-                      className="border-purple-500/30 hover:border-purple-500/60"
+                      className="border-purple-600/30 hover:border-purple-600/60"
                     >
                       <Link href="/admin/events/new">Create Event</Link>
                     </Button>
@@ -224,7 +224,7 @@ export default function AdminDashboard() {
                       asChild
                       size="sm"
                       variant="outline"
-                      className="border-purple-500/30 hover:border-purple-500/60"
+                      className="border-purple-600/30 hover:border-purple-600/60"
                     >
                       <Link href="/admin/forums/new">Create Topic</Link>
                     </Button>
@@ -237,21 +237,21 @@ export default function AdminDashboard() {
       </div>
 
       <div>
-        <h2 className="text-xl font-bold mb-6 web3-gradient-text">Platform Statistics</h2>
+        <h2 className="text-xl font-bold mb-6 web3-gradient-text">Platform Status</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           <Card className="web3-card-purple hover:border-purple-500/40 transition-colors">
             <CardContent className="p-4 md:p-6">
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="text-xs md:text-sm font-medium">Forum Topics</p>
-                  <p className="text-xl md:text-2xl font-bold">56</p>
+                  <p className="text-xs md:text-sm font-medium">Launch Status</p>
+                  <p className="text-xl md:text-2xl font-bold">Ready</p>
                 </div>
                 <div className="bg-purple-500/20 p-2 md:p-3 rounded-full">
                   <MessageSquare className="h-4 w-4 md:h-5 md:w-5 text-purple-400" />
                 </div>
               </div>
               <div className="mt-2 md:mt-4">
-                <p className="text-[10px] md:text-xs text-muted-foreground">+12 new topics this week</p>
+                <p className="text-[10px] md:text-xs text-muted-foreground">Platform is live and ready for content</p>
               </div>
             </CardContent>
           </Card>

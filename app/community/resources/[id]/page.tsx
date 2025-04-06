@@ -105,12 +105,12 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
     <div className="container py-12">
       <div className="space-y-8">
         <div>
-          <Link href="/community/resources" className="text-primary hover:underline mb-2 inline-flex items-center">
+          <Link href="/community/resources" className="link-emerald flex items-center mb-2">
             <ArrowLeft className="mr-1 h-4 w-4" /> Back to Resources
           </Link>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-4">
             <div className="lg:col-span-2 space-y-6">
-              <div className="relative h-[300px] rounded-xl overflow-hidden web3-card-featured">
+              <div className="relative h-[300px] rounded-xl overflow-hidden web3-card-glow-border">
                 <Image
                   src={resourceData.image || "/placeholder.svg"}
                   alt={resourceData.title}
@@ -118,35 +118,37 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                   className="object-cover"
                 />
                 <div className="absolute top-4 right-4">
-                  <Badge className="bg-purple-500/80 text-white border-purple-500/30">{resourceData.type}</Badge>
+                  <Badge className="badge-emerald">{resourceData.type}</Badge>
                 </div>
               </div>
 
               <div>
-                <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">{resourceData.title}</h1>
+                <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text-enhanced">
+                  {resourceData.title}
+                </h1>
                 <div className="flex flex-wrap gap-4 mt-4">
-                  <Badge variant="outline" className="bg-purple-500/10 border-purple-500/30 text-purple-300">
+                  <Badge variant="outline" className="badge-emerald">
                     {resourceData.category}
                   </Badge>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <FileText className="h-4 w-4 text-purple-400" />
+                    <FileText className="h-4 w-4 icon-emerald" />
                     <span>
                       {resourceData.fileType} • {resourceData.fileSize}
                     </span>
                   </div>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <Calendar className="h-4 w-4 text-purple-400" />
+                    <Calendar className="h-4 w-4 icon-emerald" />
                     <span>Published: {resourceData.datePublished}</span>
                   </div>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                    <User className="h-4 w-4 text-purple-400" />
+                    <User className="h-4 w-4 icon-emerald" />
                     <span>By: {resourceData.author}</span>
                   </div>
                 </div>
               </div>
 
-              <Card className="web3-card-purple">
-                <CardHeader>
+              <Card className="web3-card-gradient hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>About This Resource</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -163,13 +165,17 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                       onClick={handleLike}
                       className={
                         isLiked
-                          ? "text-purple-400 border-purple-500/30 bg-purple-500/10"
-                          : "border-purple-500/30 hover:border-purple-500/60"
+                          ? "text-emerald-400 border-emerald-500/30 bg-emerald-500/10"
+                          : "border-emerald-500/30 hover:border-emerald-500/60 hover:bg-emerald-500/10"
                       }
                     >
                       <ThumbsUp className="mr-1 h-4 w-4" /> {likeCount}
                     </Button>
-                    <Button variant="outline" size="sm" className="border-purple-500/30 hover:border-purple-500/60">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="border-emerald-500/30 hover:border-emerald-500/60 hover:bg-emerald-500/10"
+                    >
                       <MessageSquare className="mr-1 h-4 w-4" /> {resourceData.comments}
                     </Button>
                   </div>
@@ -180,8 +186,8 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                       onClick={handleBookmark}
                       className={
                         isBookmarked
-                          ? "text-purple-400 border-purple-500/30 bg-purple-500/10"
-                          : "border-purple-500/30 hover:border-purple-500/60"
+                          ? "text-emerald-400 border-emerald-500/30 bg-emerald-500/10"
+                          : "border-emerald-500/30 hover:border-emerald-500/60 hover:bg-emerald-500/10"
                       }
                     >
                       <Bookmark className="mr-1 h-4 w-4" /> {isBookmarked ? "Bookmarked" : "Bookmark"}
@@ -190,7 +196,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                       variant="outline"
                       size="sm"
                       onClick={handleShare}
-                      className="border-purple-500/30 hover:border-purple-500/60"
+                      className="border-emerald-500/30 hover:border-emerald-500/60 hover:bg-emerald-500/10"
                     >
                       <Share2 className="mr-1 h-4 w-4" /> Share
                     </Button>
@@ -201,15 +207,15 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
 
             <div className="space-y-6">
               {resourceData.downloadable && (
-                <Card className="web3-card-featured">
-                  <CardHeader>
+                <Card className="web3-card-glow-border hover-lift">
+                  <CardHeader className="card-header-gradient">
                     <CardTitle>Download Resource</CardTitle>
                     <CardDescription>Access this resource offline</CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="text-center space-y-4">
-                      <div className="bg-purple-500/10 p-4 rounded-md inline-flex mx-auto">
-                        <FileText className="h-8 w-8 text-purple-400" />
+                      <div className="bg-emerald-500/10 p-4 rounded-md inline-flex mx-auto">
+                        <FileText className="h-8 w-8 icon-emerald" />
                       </div>
                       <div>
                         <p className="font-medium">
@@ -217,7 +223,7 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                         </p>
                         <p className="text-sm text-muted-foreground mt-1">Downloaded {resourceData.downloads} times</p>
                       </div>
-                      <Button className="w-full web3-button" onClick={handleDownload}>
+                      <Button className="w-full web3-button-purple" onClick={handleDownload}>
                         <Download className="mr-2 h-4 w-4" /> Download
                       </Button>
                     </div>
@@ -225,40 +231,40 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                 </Card>
               )}
 
-              <Card className="web3-card-blue">
-                <CardHeader>
+              <Card className="web3-card-glass hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>Resource Stats</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-3 gap-4 text-center">
-                    <div className="bg-blue-500/10 p-3 rounded-md">
-                      <p className="text-lg font-bold text-blue-400">{resourceData.views}</p>
+                    <div className="bg-emerald-500/10 p-3 rounded-md">
+                      <p className="text-lg font-bold text-emerald-400">{resourceData.views}</p>
                       <p className="text-xs text-muted-foreground">Views</p>
                     </div>
-                    <div className="bg-blue-500/10 p-3 rounded-md">
-                      <p className="text-lg font-bold text-blue-400">{resourceData.downloads}</p>
+                    <div className="bg-emerald-500/10 p-3 rounded-md">
+                      <p className="text-lg font-bold text-emerald-400">{resourceData.downloads}</p>
                       <p className="text-xs text-muted-foreground">Downloads</p>
                     </div>
-                    <div className="bg-blue-500/10 p-3 rounded-md">
-                      <p className="text-lg font-bold text-blue-400">{resourceData.likes}</p>
+                    <div className="bg-emerald-500/10 p-3 rounded-md">
+                      <p className="text-lg font-bold text-emerald-400">{resourceData.likes}</p>
                       <p className="text-xs text-muted-foreground">Likes</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="web3-card-teal">
-                <CardHeader>
+              <Card className="web3-card-glass hover-lift">
+                <CardHeader className="card-header-gradient">
                   <CardTitle>Related Resources</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {relatedResources.map((resource) => {
                     // Assign different background colors based on category
-                    let bgClass = "bg-purple-500/10"
-                    let textClass = "text-purple-400"
+                    let bgClass = "bg-emerald-500/10"
+                    let textClass = "text-emerald-400"
                     if (resource.category === "Finance & Accounting") {
-                      bgClass = "bg-amber-500/10"
-                      textClass = "text-amber-400"
+                      bgClass = "bg-emerald-500/10"
+                      textClass = "text-emerald-400"
                     }
 
                     return (
@@ -269,15 +275,12 @@ export default function ResourcePage({ params }: { params: { id: string } }) {
                         <div>
                           <Link
                             href={`/community/resources/${resource.id}`}
-                            className="text-sm font-medium hover:text-primary"
+                            className="text-sm font-medium link-emerald"
                           >
                             {resource.title}
                           </Link>
                           <div className="flex items-center gap-2 mt-1">
-                            <Badge
-                              variant="outline"
-                              className="text-xs bg-teal-500/10 border-teal-500/30 text-teal-300"
-                            >
+                            <Badge variant="outline" className="text-xs badge-emerald">
                               {resource.category}
                             </Badge>
                             <span className="text-xs text-muted-foreground">{resource.type}</span>

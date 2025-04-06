@@ -103,7 +103,7 @@ export default function ForumsAdmin() {
           <h1 className="text-2xl md:text-3xl font-bold web3-gradient-text">Forums Management</h1>
           <p className="text-muted-foreground mt-1 md:mt-2 text-sm md:text-base">Manage forum topics and discussions</p>
         </div>
-        <Button className="web3-button w-full sm:w-auto" asChild>
+        <Button className="web3-button-purple w-full sm:w-auto" asChild>
           <Link href="/admin/forums/new">
             <Plus className="mr-2 h-4 w-4" /> Create New Topic
           </Link>
@@ -160,7 +160,7 @@ export default function ForumsAdmin() {
         {filteredTopics.map((topic) => (
           <Card
             key={topic.id}
-            className="overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all shadow-sm hover:shadow-md"
+            className="overflow-hidden border-purple-600/30 hover:border-purple-600/60 transition-all shadow-sm hover:shadow-md"
           >
             <div className="flex flex-col md:flex-row">
               <div className="bg-gradient-to-br from-purple-500/20 to-blue-500/10 p-3 md:p-4 flex items-center justify-center md:w-24">

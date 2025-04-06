@@ -92,14 +92,14 @@ export default function CommunityEventsPage() {
       <div className="space-y-8">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">Community Events</h1>
+            <h1 className="text-3xl font-bold tracking-tighter web3-dual-gradient-text-glow">Community Events</h1>
             <p className="text-muted-foreground">Join exclusive webinars, workshops, and discussions</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button asChild variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
+            <Button asChild variant="outline" className="border-purple-600/30 hover:border-purple-600/60">
               <Link href="/community/dashboard">Dashboard</Link>
             </Button>
-            <Button asChild className="web3-button">
+            <Button asChild className="web3-button-purple">
               <Link href="/community/events/calendar">Calendar View</Link>
             </Button>
           </div>

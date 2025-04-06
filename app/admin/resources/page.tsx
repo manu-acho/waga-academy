@@ -87,7 +87,7 @@ export default function ResourcesAdmin() {
             Upload, edit, and manage educational resources
           </p>
         </div>
-        <Button className="web3-button w-full sm:w-auto" asChild>
+        <Button className="web3-button-purple w-full sm:w-auto" asChild>
           <Link href="/admin/resources/new">
             <Plus className="mr-2 h-4 w-4" /> Add New Resource
           </Link>
@@ -144,7 +144,7 @@ export default function ResourcesAdmin() {
         {filteredResources.map((resource) => (
           <Card
             key={resource.id}
-            className="overflow-hidden border border-purple-500/20 hover:border-purple-500/40 transition-all shadow-sm hover:shadow-md"
+            className="overflow-hidden border-purple-600/30 hover:border-purple-600/60 transition-all shadow-sm hover:shadow-md"
           >
             <div className="flex flex-col md:flex-row">
               <div className="bg-gradient-to-br from-purple-500/20 to-blue-500/10 p-3 md:p-4 flex items-center justify-center md:w-24">

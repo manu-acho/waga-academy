@@ -1,10 +1,10 @@
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Coffee, Globe, Users, Lightbulb, Target, Leaf, Shield, Coins, BookOpen, Calendar } from "lucide-react"
+import { BlockchainPlaceholder } from "@/components/animations/blockchain-placeholder"
 
 // Update the team members section to use Lorem Ipsum for bios
 const teamMembers = [
@@ -96,7 +96,7 @@ export default function AboutPage() {
               <div className="inline-block rounded-lg bg-purple-500/20 border border-purple-500/30 px-3 py-1 text-sm text-purple-300">
                 Our Story
               </div>
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none web3-gradient-text">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none web3-dual-gradient-text-glow">
                 About WAGA Academy
               </h1>
               <p className="text-muted-foreground md:text-xl">
@@ -109,11 +109,11 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-xl overflow-hidden web3-card-featured">
-              <Image
-                src="/placeholder.svg?height=500&width=800"
-                alt="WAGA Academy Team"
-                fill
-                className="object-cover"
+              <BlockchainPlaceholder
+                height="100%"
+                variant="circular"
+                nodeCount={25}
+                alt="WAGA Academy Team blockchain visualization"
               />
             </div>
           </div>
@@ -471,12 +471,12 @@ export default function AboutPage() {
                     <div
                       className={`h-24 w-24 rounded-lg ${bgClass} backdrop-blur flex items-center justify-center p-4`}
                     >
-                      <Image
-                        src={partner.logo || "/placeholder.svg"}
-                        alt={partner.name}
-                        width={80}
+                      <BlockchainPlaceholder
                         height={80}
-                        className="object-contain"
+                        width={80}
+                        variant={index % 2 === 0 ? "circular" : "grid"}
+                        nodeCount={8}
+                        alt={partner.name}
                       />
                     </div>
                     <div>
@@ -615,7 +615,7 @@ export default function AboutPage() {
                   <p className="text-sm text-muted-foreground mb-4">
                     Expand your knowledge of coffee and Web3 technologies
                   </p>
-                  <Button asChild className="web3-button w-full">
+                  <Button asChild className="web3-button-purple w-full">
                     <Link href="/courses">Browse Courses</Link>
                   </Button>
                 </CardContent>
@@ -631,7 +631,7 @@ export default function AboutPage() {
                   <p className="text-sm text-muted-foreground mb-4">
                     Share your expertise at our Summer Camp in Ethiopia
                   </p>
-                  <Button asChild className="web3-button w-full">
+                  <Button asChild className="web3-button-purple w-full">
                     <Link href="/summer-camp/register">Apply Now</Link>
                   </Button>
                 </CardContent>
@@ -647,7 +647,7 @@ export default function AboutPage() {
                   <p className="text-sm text-muted-foreground mb-4">
                     Collaborate on initiatives to transform the coffee industry
                   </p>
-                  <Button asChild className="web3-button w-full">
+                  <Button asChild className="web3-button-purple w-full">
                     <Link href="/contact" scroll={true}>
                       Get in Touch
                     </Link>

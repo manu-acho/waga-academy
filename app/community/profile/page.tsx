@@ -93,14 +93,14 @@ export default function ProfilePage() {
       <div className="space-y-8">
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4">
           <div>
-            <h1 className="text-3xl font-bold tracking-tighter web3-gradient-text">My Profile</h1>
+            <h1 className="text-3xl font-bold tracking-tighter web3-dual-gradient-text-glow">My Profile</h1>
             <p className="text-muted-foreground">Manage your community profile and settings</p>
           </div>
           <div className="flex items-center gap-4">
-            <Button asChild variant="outline" className="border-purple-500/30 hover:border-purple-500/60">
+            <Button asChild variant="outline" className="border-purple-600/30 hover:border-purple-600/60">
               <Link href="/community/dashboard">Dashboard</Link>
             </Button>
-            <Button className="web3-button" onClick={() => setIsEditing(!isEditing)}>
+            <Button className="web3-button-purple" onClick={() => setIsEditing(!isEditing)}>
               {isEditing ? "Cancel" : "Edit Profile"}
             </Button>
           </div>
@@ -338,7 +338,7 @@ export default function ProfilePage() {
                   </CardContent>
                   {isEditing && (
                     <CardFooter className="flex justify-end">
-                      <Button className="web3-button" onClick={handleSave} disabled={isSaving}>
+                      <Button className="web3-button-purple" onClick={handleSave} disabled={isSaving}>
                         {isSaving ? "Saving..." : "Save Changes"}
                       </Button>
                     </CardFooter>
